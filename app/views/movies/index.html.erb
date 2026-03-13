@@ -1,0 +1,32 @@
+<%#  <%= runs the code and substitutdes result into the template %>
+<%#  <% runs the code but DOES NOT substitutdes result into the template %>
+
+<% @movies.each do |movie| %>
+  <section class="movie">
+    <div class="movie">
+      <%= image_tag movie.image_file_name %>
+    </div>
+    <div class="summary">
+      <h2>
+        <%= link_to movie.title, movie %>
+      </h2>
+      <h3>
+        <%= total_gross(movie) %>
+      </h3>
+      <h3>
+        <%#<%= average_stars(movie) %>
+        <%#<%= movie.average_stars_percent %>
+        <%= render "shared/stars", percent: movie.average_stars_percent %>
+      </h3>
+      <p>
+        <%= truncate(movie.description, length:150, separator: ' ') %>
+      </p>
+    </div>
+  </section>
+<% end %>
+
+<% if current_user_admin? %>
+  <section class="admin">
+  <%=link_to "Add New Movie", new_movie_path, class: "button" %>
+  </section>
+<% end %>

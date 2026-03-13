@@ -1,0 +1,23 @@
+<%#
+It just iterates through all the flash keys and values, and uses the content_tag helper to generate a styled div tag for each message. 
+That way, whatever you put in the flash will get displayed with a little style. 
+Notice that by using an iterator we don't need a conditional because the iterator only runs for the keys that are in the flash.
+%>
+<% flash.each do |type, message| %>
+  <%= content_tag(:div, message, class: "flash #{type}") %>
+<% end %>
+
+<!--
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>  
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+%>
+>

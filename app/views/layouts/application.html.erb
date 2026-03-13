@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super-Heroic Flix</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <%# csrf_meta_tags generates meta tags for a token that's used internally by Rails to add hidden security fields to forms %>
+    <%= csrf_meta_tags %>
+    <%# ccsp_meta_tag generates meta tag for a per-session nonce value for allowing inline <script> tags (don't worry about it either). %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%# stylesheet_link_tag generates the following link tag for the app's stylesheet %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# javascript_importmap_tags generates the following script tag which imports the JavaScript files used by the app %>
+    <%= javascript_include_tag "application", defer: true %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%= render "layouts/header" %>
+
+    <div class="content">
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </div>
+
+    <%= render "layouts/footer" %>
+
+  </body>
+</html>

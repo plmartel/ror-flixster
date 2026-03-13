@@ -1,0 +1,12 @@
+<% @genres.each do |g| %>
+    <li>
+      <%= link_to g.name, g %>
+      created
+      <%= time_ago_in_words(g.created_at) %> ago
+    </li>
+  <% end %>
+  <% if current_user_admin? %>
+    <section class="admin">
+    <%=link_to "Add New Genre", new_genre_path, class: "button" %>
+    </section>
+<% end %>
