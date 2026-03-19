@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   resources :users
   get "signup" => "users#new"
+
+  get "/debug_movies", to: "movies#debug"
+
 end
   #get "movies" => "movies#index"
   #get "movies/new" => "movies#new"

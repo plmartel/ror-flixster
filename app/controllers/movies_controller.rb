@@ -71,6 +71,10 @@ class MoviesController < ApplicationController
         redirect_to movies_url, status: :see_other,danger: "I'm sorry, Dave, I'm afraid I can't do that!"
     end
 
+    def debug
+      render plain: Movie.count
+    end
+    
     private
         def movie_params
             params.require(:movie).
