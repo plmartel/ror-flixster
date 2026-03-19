@@ -6,7 +6,8 @@
       <div class="faves">
         <%= like_or_unlike_button(@movie, @favorite) %>
         <div class="count">
-          <%= @fans.size %> 
+          <%= @fans.size %>
+        </div>
       </div>
     <% end %>
     </div>
@@ -61,7 +62,7 @@
           <li><%= link_to g.name, g %></li>
         <% end %>
       </ul>
-  <% end %>
+    <% end %>
   </aside>
 
 </section>
