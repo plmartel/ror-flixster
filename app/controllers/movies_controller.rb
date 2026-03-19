@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
-    before_action :require_signin, except: [:index, :show]
-    before_action :require_admin, except: [:index, :show]
+    before_action :require_signin, except: [:index, :show, :debug]
+    before_action :require_admin, except: [:index, :show, :debug]
     before_action :set_movie, only: [:edit, :show, :update, :destroy]
 
     def index
@@ -74,7 +74,7 @@ class MoviesController < ApplicationController
     def debug
       render plain: Movie.count
     end
-    
+
     private
         def movie_params
             params.require(:movie).
