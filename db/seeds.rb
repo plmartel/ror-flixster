@@ -35,19 +35,19 @@ Genre.create!([
 Review.create!([
   {stars: 5, comment: "Two thumbs up!", movie_id: 2, user_id: 1},
   {stars: 5, comment: "Greatt", movie_id: 1, user_id: 4},
-  {stars: 4, comment: "Cool!", movie_id: 1, user_id: 7},
-  {stars: 4, comment: "Good", movie_id: 3, user_id: 7},
-  {stars: 3, comment: "Just ok", movie_id: 2, user_id: 7}
+  {stars: 4, comment: "Cool!", movie_id: 1, user_id: 3},
+  {stars: 4, comment: "Good", movie_id: 3, user_id: 3},
+  {stars: 3, comment: "Just ok", movie_id: 2, user_id: 3}
 ])
 Favorite.create!([
   {movie_id: 1, user_id: 1},
   {movie_id: 1, user_id: 2},
   {movie_id: 2, user_id: 1},
   {movie_id: 2, user_id: 4},
-  {movie_id: 3, user_id: 7},
+  {movie_id: 3, user_id: 3},
   {movie_id: 3, user_id: 2},
   {movie_id: 4, user_id: 4},
-  {movie_id: 4, user_id: 7},
+  {movie_id: 4, user_id: 3},
   {movie_id: 4, user_id: 1},
   {movie_id: 1, user_id: 4}
 ])
