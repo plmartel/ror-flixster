@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_many :favorite_movies, through: :favorites, source: :movie
 
   has_secure_password
-
-  validates :name,:username, presence: true
-
+  
+  validates :name, presence: true, uniqueness: true
+  
   validates :username, format: { with: /\A[A-Z0-9]+\z/i },
                        uniqueness: { case_senitive: false }
 
