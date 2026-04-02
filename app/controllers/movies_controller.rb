@@ -67,8 +67,7 @@ class MoviesController < ApplicationController
 
     def destroy
         @movie.destroy
-        #redirect_to movies_url, status: :see_other, alert: "Movie successfully deleted!"
-        redirect_to movies_url, status: :see_other,danger: "I'm sorry, Dave, I'm afraid I can't do that!"
+        redirect_to movies_url, status: :see_other, denger: "Movie successfully deleted!"
     end
 
     def debug
@@ -78,7 +77,7 @@ class MoviesController < ApplicationController
     private
         def movie_params
             params.require(:movie).
-                permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :image_file_name, genre_ids: [])
+                permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :main_image, genre_ids: [])
         end
 
         def movies_filter
